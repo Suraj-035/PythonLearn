@@ -4,7 +4,7 @@ import re
 
 app = Flask(__name__)
 
-SERPER_API_KEY = "2daec1ae18a383752c43bcfa213ec9f6201d91de" 
+SERPER_API_KEY = "******8a383**********cfa213ec9f620*******de" 
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 def extract_emails_from_url(url):
