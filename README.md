@@ -31,7 +31,7 @@ You’ll need Python (≥3.8) and some core libraries. Recommended setup:
 Clone the repo:
 ```
 git clone https://github.com/Suraj-035/PythonLearn.git
-cd your-repo-name
+cd PythonLearn
 ```
 
 🤝 Contributing
