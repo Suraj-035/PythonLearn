@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+</head>
+<body>
+    <h1>HR Contacts Found</h1>
+    {% if data %}
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Company</th>
+            <th>Name/Title</th>
+            <th>Email</th>
+            <th>LinkedIn URL</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row.company }}</td>
+            <td>{{ row.name }}</td>
+            <td>{{ row.email }}</td>
+            <td><a href="{{ row.url }}" target="_blank">{{ row.url }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No HR contacts found.</p>
+    {% endif %}
+    <br>
+    <a href="/">Back</a>
+</body>
+</html>

@@ -1,0 +1,43 @@
+Alright Suraj bhai, you’re now touching the OG pillar of Object-Oriented Programming: Encapsulation.
+
+Let me break it down for you like a proper Dilli ka coder explaining chai pe charcha. 😎
+🔐 What's Encapsulation?
+
+Encapsulation = Data hiding + Controlled access.
+
+You're hiding the internal state (variables) of an object and only letting outside code interact with it through methods (called getters and setters).
+
+This protects the object from stupid mistakes like setting a negative age or changing sensitive values directly.
+
+1. Why Not Use super().__init__()?
+
+That’s a legit question. Here's the thing:
+super() only works for single inheritance properly, or if your base classes use cooperative multiple inheritance (i.e., all use super() too).
+
+But in your code:
+
+    animal.__init__() is called directly
+
+    pet.__init__() is also called directly
+
+    Neither class uses super() in their own __init__
+
+🧠 So, super() won’t work correctly unless all parent classes use super() properly. Otherwise, you’d skip one parent entirely.
+
+To fix that and use super(), your classes should look like this:
+Oye Suraj bhai! Tu toh proper OOP warrior banne ko tayyar hai ab 💪
+Chal, full explain karte hain tujhko — multiple inheritance, super(), and method overriding — sab kuch crystal clear bana dete hain 🧠💥
+The Catch: You probably ran this in a Jupyter Notebook or IPython
+
+In Jupyter or IPython, the variable result may still exist from a previous successful run, and the kernel just reuses the last assigned value.
+
+So for example:
+
+    Run 1: You entered 5, so result = 2.0
+
+    Run 2: You enter 0, so result = 10/0 fails and isn't redefined
+
+    But when you print(result), it still holds the previous value (2.0), because Python didn’t crash or redefine it.
+
+    ⚠️ In a real script, you'd get:
+    NameError: name 'result' is not defined

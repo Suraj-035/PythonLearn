@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Contact Finder</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+    <div class="w-full max-w-3xl bg-white shadow-lg rounded-lg p-6">
+        <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">HR Contact Finder</h1>
+
+        <!-- Search Form -->
+        <form method="POST" class="space-y-4">
+            <div>
+                <label class="block text-gray-700 font-semibold">Role:</label>
+                <input type="text" name="role" placeholder="e.g. Fuck boy"
+                       class="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-blue-300">
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-semibold">Company:</label>
+                <input type="text" name="company" placeholder="e.g. BraXXers"
+                       class="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-blue-300">
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-semibold">Location:</label>
+                <input type="text" name="location" placeholder="e.g. GB road"
+                       class="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-blue-300">
+            </div>
+
+            <button type="submit"
+                class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+                Search
+            </button>
+        </form>
+
+        <!-- Results Section -->
+        {% if contacts is defined %}
+            {% if contacts %}
+                <div class="mt-6">
+                    <h2 class="text-xl font-semibold mb-3 text-gray-700">Results</h2>
+                    <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
+                        <thead>
+                            <tr class="bg-blue-600 text-white text-left">
+                                <th class="py-2 px-4">Name</th>
+                                <th class="py-2 px-4">Email</th>
+                                <th class="py-2 px-4">Company</th>
+                                <th class="py-2 px-4">Role</th>
+                                <th class="py-2 px-4">Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for contact in contacts %}
+                            <tr class="border-b hover:bg-gray-100">
+                                <td class="py-2 px-4">{{ contact['Name'] }}</td>
+                                <td class="py-2 px-4 text-blue-600 underline">{{ contact['Email'] }}</td>
+                                <td class="py-2 px-4">{{ contact['Company'] }}</td>
+                                <td class="py-2 px-4">{{ contact['Role'] }}</td>
+                                <td class="py-2 px-4">{{ contact['Location'] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="mt-6 text-center text-red-500 font-semibold">No HR contacts found.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
